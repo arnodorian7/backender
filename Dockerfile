@@ -9,11 +9,14 @@ RUN apt-get update && \
 # Set the working directory in the container to /app
 WORKDIR /app
 
-# Add current directory files to /app in container
-ADD . /app
+# Add requirements.txt file to the container
+COPY requirements.txt .
 
-# Install necessary packages, Flask and ffmpeg-python
-RUN pip install --no-cache-dir flask werkzeug ffmpeg-python requests gunicorn
+# Install necessary packages from requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Add remaining files to the container
+COPY . .
 
 # Make port 5000 available to the world outside this container
 # EXPOSE 5000
