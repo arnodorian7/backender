@@ -1,1 +1,7 @@
+Flask
+werkzeug
+requests
+moviepy
+ffmpeg-python
+scipy
 
