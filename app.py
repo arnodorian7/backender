@@ -1,4 +1,3 @@
-# app.py
 import subprocess
 import uuid
 from flask import Flask, request, jsonify, send_file
@@ -31,6 +30,7 @@ def homepage():
 def hello():
     return "Hello"
 
+
 @app.route('/get_similar', methods=['POST'])
 def cosine_similarity():
     data = request.json
@@ -47,3 +47,6 @@ def cosine_similarity():
 
     return jsonify({'most_similar_text': texts[most_similar_index]})
 
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
